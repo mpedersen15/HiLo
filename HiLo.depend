@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508540040 source:f:\my documents\c++\hilo\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
