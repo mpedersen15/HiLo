@@ -27,21 +27,35 @@ void startGame()
 
     int targetMin = 1, targetMax = 100, maxGuesses = 7, currentGuess = 1;
     int target = getRandomNumber(targetMin, targetMax);
+    bool gameWon = false;
+    // cout << "I have picked a number (HINT: it's " << target << ").  You have " << maxGuesses << " guesses." << endl;
+    cout << "I have picked a number.  You have " << maxGuesses << " guesses." << endl;
 
-    cout << "I have picked a number (HINT: it's " << target << ").  You have " << maxGuesses << " guesses." << endl;
-
-    while(true)
+    while(currentGuess <= maxGuesses && !gameWon)
     {
         int guess = getUserInput(currentGuess);
 
         if (guess == target)
         {
             cout << "You win!" << endl;
-            break;
-        }else
+            gameWon = true;
+        }
+        else
         {
-            cout << "You lose" << endl;
-            break;
+            if (guess < target)
+            {
+                cout << "Your guess is too low." << endl;
+            }
+            else
+            {
+                cout << "Your guess is too high" << endl;
+            }
+            currentGuess++;
+        }
+
+        if (currentGuess > maxGuesses)
+        {
+            cout << "You've reached the maximum number of guesses. The number was " << target << ". You lose." << endl;
         }
     }
 
